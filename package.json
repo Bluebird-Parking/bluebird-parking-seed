@@ -14,7 +14,7 @@
         "build": "tsc",
         "test": "jest --coverage",
         "test.watch": "jest --coverage --watch",
-        "lint": "eslint ./src/ --fix --ext .js,.jsx,.ts,.tsx"
+        "lint": "eslint ./src/ --fix --ext .js,.jsx,.ts,.tsx --max-warnings 0"
     },
     "repository": {
         "type": "git",
