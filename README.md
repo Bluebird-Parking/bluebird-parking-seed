@@ -68,13 +68,24 @@ There is one command for linting:
 
 Please ensure each commit successfully builds otherwise the build will fail.
 
-This is one command for building:
+There is one command for building:
 - `npm run build` - which compiles and builds the project.
 
-### Deploying Releases
+### Deployment and Releases
 
 @TODO: When semantic releases is setup on Cloudbuild.
+
+## TODO:
+
+- [] Setup Conventional Commits Locally (using Commitlint and Husky)
+- [] Setup Conventional Commits on CI/CD (using Commitlint)
+- [] Setup Semantic Releases on CI/CD
+- [] Document the following noted ENV_VARS:
+  - [] Note: Should use the env_var for $GOOGLE_CLOUD_PROJECT.
+  - [] Note: Should use env_var for DATA BUCKET URL
+  - [] Note: Should use env_var for DATA/FIRESTORE DATABASE to load/remove data from
 
 ## License
 
 See [LICENSE.md](https://github.com/Bluebird-Parking/bluebird-parking-seed/blob/master/LICENSE).
+
