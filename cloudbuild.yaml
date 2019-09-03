@@ -1,9 +1,17 @@
 steps:
+  - name: 'gcr.io/cloud-builders/git'
+    id: fetch_full_repository
+    entrypoint: 'bash'
+    args:
+      - -c
+      - |
+        git fetch --unshallow
+        git checkout $BRANCH_NAME
   - name: 'gcr.io/cloud-builders/npm'
     id: npm_install
     args:
       - install
-  - name: 'gcr.io/cloud-builders/git'
+  - name: 'gcr.io/cloud-builders/npm'
     id: commitlint
     entrypoint: 'bash'
     args:
