@@ -5,6 +5,8 @@ steps:
     args:
       - -c
       - |
+        git init
+        git remote add origin https://github.com/Bluebird-Parking/bluebird-parking-seed.git
         git fetch --unshallow
         git checkout $BRANCH_NAME
   - name: 'gcr.io/cloud-builders/npm'
