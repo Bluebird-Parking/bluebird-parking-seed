@@ -4,6 +4,13 @@ steps:
     args:
       - install
   - name: 'gcr.io/cloud-builders/npm'
+    id: commitlint
+    entrypoint: 'bash'
+    args:
+      - -c
+      - |
+        npx commitlint --from HEAD~1 --to HEAD --verbose
+  - name: 'gcr.io/cloud-builders/npm'
     id: npm_run_build
     args:
       - run
