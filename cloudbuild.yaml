@@ -3,7 +3,7 @@ steps:
     id: npm_install
     args:
       - install
-  - name: 'gcr.io/cloud-builders/npm'
+  - name: 'gcr.io/cloud-builders/git'
     id: commitlint
     entrypoint: 'bash'
     args:
