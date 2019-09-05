@@ -5,9 +5,8 @@ steps:
     args:
       - -c
       - |
-        git init
-        git remote add origin https://github.com/Bluebird-Parking/bluebird-parking-seed.git
-        git fetch --depth=1 origin $COMMIT_SHA
+        git fetch --unshallow origin $COMMIT_SHA
+        git pull
   - name: 'gcr.io/cloud-builders/npm'
     id: npm_install
     args:
