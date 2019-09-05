@@ -5,6 +5,7 @@ steps:
     args:
       - -c
       - |
+        pwd
         git fetch --unshallow origin $COMMIT_SHA
         git pull
   - name: 'gcr.io/cloud-builders/npm'
