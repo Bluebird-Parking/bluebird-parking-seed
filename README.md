@@ -79,8 +79,6 @@ There are two methods in which conventional commits are enforced:
 - A Commit Pre-Hook step using Husky
 - A step on Cloudbuild to verify that a commit conforms to the conventional commit standard
 
-
-
 ### Deployment and Releases
 
 @TODO: When semantic releases is setup on Cloudbuild.
@@ -88,6 +86,8 @@ There are two methods in which conventional commits are enforced:
 ## TODO:
 
 - [] Setup Semantic Releases on CI/CD
+- [] Setup Slack Cloudbuild Notifications
+- [] Document Slack Github integration
 - [] Document the following noted ENV_VARS:
   - [] Note: Should use the env_var for $GOOGLE_CLOUD_PROJECT.
   - [] Note: Should use env_var for DATA BUCKET URL
