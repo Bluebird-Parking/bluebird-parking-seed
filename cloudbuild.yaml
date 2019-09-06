@@ -5,10 +5,7 @@ steps:
     args:
       - -c
       - |
-        pwd
-        ls
-        git fetch --unshallow origin $COMMIT_SHA
-        git pull
+        git clone https://github.com/Bluebird-Parking/bluebird-parking-seed.git . 
   - name: 'gcr.io/cloud-builders/npm'
     id: npm_install
     args:
