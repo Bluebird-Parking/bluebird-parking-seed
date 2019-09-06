@@ -8,7 +8,7 @@ steps:
         cd /dev-files/
         git clone https://github.com/Bluebird-Parking/bluebird-parking-seed.git
         cd bluebird-parking-seed
-        git checkout $BRANCH
+        git checkout $BRANCH_NAME
     volumes:
       - name: 'dev-files'
         path: /dev-files
