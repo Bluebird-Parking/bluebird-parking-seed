@@ -79,6 +79,8 @@ There are two methods in which conventional commits are enforced:
 - A Commit Pre-Hook step using Husky
 - A step on Cloudbuild to verify that a commit conforms to the conventional commit standard
 
+
+
 ### Deployment and Releases
 
 @TODO: When semantic releases is setup on Cloudbuild.
