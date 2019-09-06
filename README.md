@@ -71,14 +71,20 @@ Please ensure each commit successfully builds otherwise the build will fail.
 There is one command for building:
 - `npm run build` - which compiles and builds the project.
 
+### Conventional Commits
+
+Please ensure each commit successfully complies with [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.4/) othervise the build will fail.
+
+There are two methods in which conventional commits are enforced:
+- A Commit Pre-Hook step using Husky
+- A step on Cloudbuild to verify that a commit conforms to the conventional commit standard
+
 ### Deployment and Releases
 
 @TODO: When semantic releases is setup on Cloudbuild.
 
 ## TODO:
 
-- [] Setup Conventional Commits Locally (using Commitlint and Husky)
-- [] Setup Conventional Commits on CI/CD (using Commitlint)
 - [] Setup Semantic Releases on CI/CD
 - [] Document the following noted ENV_VARS:
   - [] Note: Should use the env_var for $GOOGLE_CLOUD_PROJECT.
