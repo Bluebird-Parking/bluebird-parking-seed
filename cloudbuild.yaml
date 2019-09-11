@@ -9,12 +9,9 @@ steps:
         git clone https://github.com/Bluebird-Parking/bluebird-parking-seed.git
         cd bluebird-parking-seed
         git checkout $BRANCH_NAME
-        echo $$GH_TOKEN
-        echo $$NPM_TOKEN
     volumes:
       - name: 'dev-files'
         path: /dev-files
-    secretEnv: ['GH_TOKEN', 'NPM_TOKEN']
   - name: 'gcr.io/cloud-builders/npm'
     id: commitlint
     entrypoint: 'bash'
@@ -47,6 +44,13 @@ steps:
     args:
       - run
       - test
+  - name: 'gcr.io/cloud-builders/npm'
+    id: semantic_release
+    args:
+      - npx
+      - semantic-release
+      - -d
+    secretEnv: ['GH_TOKEN', 'NPM_TOKEN']
 secrets:
   - kmsKeyName: projects/bluebird-training/locations/global/keyRings/bluebird/cryptoKeys/bluebird-crypto
     secretEnv:
