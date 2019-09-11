@@ -49,8 +49,7 @@ steps:
     entrypoint: npx
     args:
       - semantic-release
-      - --dry-run=false
-      - --ci=true
+      - --no-ci
     secretEnv: ['GH_TOKEN', 'NPM_TOKEN']
 secrets:
   - kmsKeyName: projects/bluebird-training/locations/global/keyRings/bluebird/cryptoKeys/bluebird-crypto
