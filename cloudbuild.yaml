@@ -50,6 +50,7 @@ steps:
     args:
       - semantic-release
       - --dry-run=false
+      - --ci=true
     secretEnv: ['GH_TOKEN', 'NPM_TOKEN']
 secrets:
   - kmsKeyName: projects/bluebird-training/locations/global/keyRings/bluebird/cryptoKeys/bluebird-crypto
