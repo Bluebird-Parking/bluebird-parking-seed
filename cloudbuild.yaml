@@ -48,7 +48,7 @@ steps:
       - run
       - test
 secrets:
-  - kmsKeyName: projects/$PROJECT_ID/locations/global/keyRings/$_KEYRING/cryptoKeys/$_KEY
+  - kmsKeyName: 'projects/$PROJECT_ID/locations/global/keyRings/${_KEYRING}/cryptoKeys/${_KEY}'
     secretEnv:
       GH_TOKEN: CiQA6proVI0rITq5HiD7oZcJ2D+TF4ogJkNL71i1FPqDevuSPhkSUQDJnF9TCTBsqFcugmEauSbfpNww81sgTQpx2P5IaVpZoynlKP7lqV4B7y95oF9Xkbv9g0hsWpx4GEDRCWR/Qj6zEKfiATTcoFEbfh89ZFxUnA==
       NPM_TOKEN: CiQA6proVJB4LEkv4koMrS+EgSJDp5mD2BnZnvc+Z+p5NWVZcAgSTQDJnF9TpLaa3kBi+uoBXxgluuG5lw2xC7S3vgU9tIC6OFExllifqaSz9V0m69aWtqV+sHATRxDs47CxyMRUisFheUDPUOUK1A5I6C2N
