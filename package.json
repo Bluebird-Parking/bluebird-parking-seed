@@ -10,7 +10,7 @@
         "bp-seed": "bin/cli"
     },
     "scripts": {
-        "prepublish": "npm run build",
+        "prepare": "npm run build",
         "build": "tsc",
         "test": "jest --coverage",
         "test.watch": "jest --coverage --watch",
