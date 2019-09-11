@@ -46,8 +46,8 @@ steps:
       - test
   - name: 'gcr.io/cloud-builders/npm'
     id: semantic_release
+    entrypoint: npx
     args:
-      - npx
       - semantic-release
       - -d
     secretEnv: ['GH_TOKEN', 'NPM_TOKEN']
