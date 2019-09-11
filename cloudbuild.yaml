@@ -9,8 +9,8 @@ steps:
         git clone https://github.com/Bluebird-Parking/bluebird-parking-seed.git
         cd bluebird-parking-seed
         git checkout $BRANCH_NAME
-        echo $GH_TOKEN
-        echo $NPM_TOKEN
+        echo $$GH_TOKEN
+        echo $$NPM_TOKEN
     volumes:
       - name: 'dev-files'
         path: /dev-files
