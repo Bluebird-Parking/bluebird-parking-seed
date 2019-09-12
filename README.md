@@ -102,6 +102,10 @@ Here is an example of the release type that will be done based on commit message
 | `perf(pencil): remove graphiteWidth option`<br><br>`BREAKING CHANGE: The graphiteWidth option has been removed.`<br>`The default graphite width of 10mm is always used for performance reasons.` | ~~Major~~ Breaking Release             | v2.0.0 |
 
 
+### Dependencies
+
+Please ensure you keep the dependency list up to date in the `README.md` as this makes it more obvious what packages this module depends on. 
+
 ## TODO:
 
 - [] Setup Slack Cloudbuild Notifications
