@@ -79,7 +79,7 @@ There is one command for building:
 
 ### Conventional Commits
 
-Please ensure each commit successfully complies with [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.4/) othervise the build will fail.
+Please ensure each commit successfully complies with [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.4/) otherwise the build will fail.
 
 There are two methods in which conventional commits are enforced:
 - A Commit Pre-Hook step using Husky
@@ -95,11 +95,11 @@ handled by [Semantic Release](https://github.com/semantic-release/semantic-relea
 
 Here is an example of the release type that will be done based on a commit messages:
 
-| Commit message                                                                                                                                                                                   | Release type               |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|
-| `fix(pencil): stop graphite breaking when too much pressure applied`                                                                                                                             | Patch Release  eg: v1.0.1              |
-| `feat(pencil): add 'graphiteWidth' option`                                                                                                                                                       | ~~Minor~~ Feature Release eg: v1.1.0   |
-| `perf(pencil): remove graphiteWidth option`<br><br>`BREAKING CHANGE: The graphiteWidth option has been removed.`<br>`The default graphite width of 10mm is always used for performance reasons.` | ~~Major~~ Breaking Release eg: v2.0.0  |
+| Commit message                                                                                                                                                                                   | Release type               | Version |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|--------|
+| `fix(pencil): stop graphite breaking when too much pressure applied`                                                                                                                             | Patch Release                          | v1.0.1 |
+| `feat(pencil): add 'graphiteWidth' option`                                                                                                                                                       | ~~Minor~~ Feature Release              | v1.1.0 |
+| `perf(pencil): remove graphiteWidth option`<br><br>`BREAKING CHANGE: The graphiteWidth option has been removed.`<br>`The default graphite width of 10mm is always used for performance reasons.` | ~~Major~~ Breaking Release             | v2.0.0 |
 
 
 ## TODO:
