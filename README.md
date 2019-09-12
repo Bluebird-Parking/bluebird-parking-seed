@@ -93,7 +93,7 @@ Semantic Releases are automated on the build of the `master` branch. It will aut
 What's included in each release is 
 handled by [Semantic Release](https://github.com/semantic-release/semantic-release) through commit message convention. 
 
-Here is an example of the release type that will be done based on a commit messages:
+Here is an example of the release type that will be done based on commit messages:
 
 | Commit message                                                                                                                                                                                   | Release type               | Version |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|--------|
