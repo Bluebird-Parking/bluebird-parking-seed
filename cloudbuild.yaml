@@ -3,8 +3,7 @@ steps:
     id: watch_for_build_status
     args:
       - --build=$BUILD_ID
-      - --webhook=$$SLACK_HOOK_URL
-    secretEnv: ['SLACK_HOOK_URL']
+      - --webhook=$_SLACK_HOOK_URL
   - name: 'gcr.io/cloud-builders/git'
     id: fetch_full_repository
     entrypoint: 'bash'
@@ -62,4 +61,3 @@ secrets:
     secretEnv:
       GH_TOKEN: CiQA6proVI0rITq5HiD7oZcJ2D+TF4ogJkNL71i1FPqDevuSPhkSUQDJnF9TCTBsqFcugmEauSbfpNww81sgTQpx2P5IaVpZoynlKP7lqV4B7y95oF9Xkbv9g0hsWpx4GEDRCWR/Qj6zEKfiATTcoFEbfh89ZFxUnA==
       NPM_TOKEN: CiQA6proVJB4LEkv4koMrS+EgSJDp5mD2BnZnvc+Z+p5NWVZcAgSTQDJnF9TpLaa3kBi+uoBXxgluuG5lw2xC7S3vgU9tIC6OFExllifqaSz9V0m69aWtqV+sHATRxDs47CxyMRUisFheUDPUOUK1A5I6C2N
-      SLACK_HOOK_URL: CiQA6proVOSefnGJtC2l/BqMgKh8U+/gIzKZL9UneLkK9Cts/C0SdgDJnF9TXiAyLDZX2bCoFHOHSKpwRQ05FZ7pbo5T/VU+rySnU3km0bMV10mAqN5t8OXQj4CNs7cpTjS9BJK7kqW5cO1q0zH7yokK6x8aTW9p246W+6Q4jl92w7TOXQD7rnf0mJmajHqc+mMwoCwrFsy684erc10=
