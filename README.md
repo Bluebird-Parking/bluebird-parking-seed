@@ -26,19 +26,25 @@ This data should be held within a Google Storage bucket called: `gs://bluebird-s
 
 ## Installation
 
-`npm install @bluebird-parking/seed`
+`npm install -g @bluebird-parking/seed`
 
 ## Dependencies
 
-- Google Cloud Platform
+- Google Cloud Platform:
+  - Cloudbuild
+  - Storage
+  - KMS
 - esm
 
 ## Development Dependencies
 
+- @commitlint/cli
+- @commitlint/config-conventional
 - @tomchinery/eslint-config
 - @tomchinery/prettier
 - @types/jest
 - eslint
+- husky
 - jest
 - prettier
 - ts-jest
@@ -81,11 +87,23 @@ There are two methods in which conventional commits are enforced:
 
 ### Deployment and Releases
 
-@TODO: When semantic releases is setup on Cloudbuild.
+Semantic Releases are automated on the build of the `master` branch. It will automatically tag the Github repository, generate release notes, and publish a new version of the package to npm.
+
+
+What's included in each release is 
+handled by [Semantic Release](https://github.com/semantic-release/semantic-release) through commit message convention. 
+
+Here is an example of the release type that will be done based on a commit messages:
+
+| Commit message                                                                                                                                                                                   | Release type               |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|
+| `fix(pencil): stop graphite breaking when too much pressure applied`                                                                                                                             | Patch Release  eg: v1.0.1              |
+| `feat(pencil): add 'graphiteWidth' option`                                                                                                                                                       | ~~Minor~~ Feature Release eg: v1.1.0   |
+| `perf(pencil): remove graphiteWidth option`<br><br>`BREAKING CHANGE: The graphiteWidth option has been removed.`<br>`The default graphite width of 10mm is always used for performance reasons.` | ~~Major~~ Breaking Release eg: v2.0.0  |
+
 
 ## TODO:
 
-- [] Setup Semantic Releases on CI/CD
 - [] Setup Slack Cloudbuild Notifications
 - [] Document Slack Github integration
 - [] Document the following noted ENV_VARS:
