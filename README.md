@@ -54,6 +54,8 @@ This data should be held within a Google Storage bucket called: `gs://bluebird-s
 
 This project is setup with Google Cloudbuild which will run on every branch and commit. 
 
+If you are in the Bluebird Parking Slack workspace you should be notified whether a build is successful or not in the #build channel.
+
 ### Unit Tests 
 
 Please ensure each commit has unit tests and meets 100% test coverage threshold otherwise
@@ -108,8 +110,6 @@ Please ensure you keep the dependency list up to date in the `README.md` as this
 
 ## TODO:
 
-- [] Setup Slack Cloudbuild Notifications
-- [] Document Slack Github integration
 - [] Document the following noted ENV_VARS:
   - [] Note: Should use the env_var for $GOOGLE_CLOUD_PROJECT.
   - [] Note: Should use env_var for DATA BUCKET URL
