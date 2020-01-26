@@ -1,9 +1,11 @@
 const { transform } = require('camaro');
 
+//@TODO: This output could be an interface?
 export async function parser(xml: string): Promise<any> {
     return transform(xml, {
         carparks: [
-            '/CarParkDataImport/CarPark',
+            //'/CarParkDataImport/CarPark',
+            '/CarPark',
             {
                 name: 'CarParkName',
                 location: 'Location',

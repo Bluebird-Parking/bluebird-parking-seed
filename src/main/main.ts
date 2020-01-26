@@ -1,5 +1,6 @@
 import { parser } from '../parser/parser';
 import { cloudStorageDownload } from '../retrieve/cloud-storage';
+import { transform } from '../transform/transform';
 
 export function testFun(): number {
     console.log('Im adding 2+2');
@@ -343,12 +344,12 @@ const testXML = `
 	</CarPark>`;
 
 export async function main() {
-    const dl = await cloudStorageDownload('bluebird-parking-dev-data', 'source/CarParkData_1.xml');
+    //const dl = await cloudStorageDownload('bluebird-parking-dev-data', 'source/CarParkData_1.xml');
+    //const result = await parser(dl.toString());
 
-
-    const result = await parser(dl.toString());
+    const parseResult = await parser(testXML);
+    const result = await transform(parseResult.carparks);
 
     console.log(result);
-
     return result;
 }
