@@ -41,6 +41,6 @@ export function transformSpaces(spaces: any[]): any {
 
     return {
         disabledSpaces: disabled ? parseInt(disabled.numberOfSpaces) : 0,
-        parentAndChildSpaces: parent ? parent.numberOfSpaces : 0
+        parentAndChildSpaces: parent ? parseInt(parent.numberOfSpaces) : 0
     };
 }
