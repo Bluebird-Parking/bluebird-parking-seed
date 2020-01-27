@@ -52,6 +52,9 @@
         "camaro": "^4.1.2",
         "dotenv": "^8.2.0",
         "esm": "^3.2.25",
+        "geo-hash": "0.0.2",
+        "latlon-geohash": "^2.0.0",
+        "ospoint": "^0.2.1",
         "uuidv4": "^6.0.2"
     },
     "husky": {

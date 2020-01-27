@@ -4,8 +4,8 @@ const { transform } = require('camaro');
 export async function parser(xml: string): Promise<any> {
     return transform(xml, {
         carparks: [
-            '/CarParkDataImport/CarPark',
-            //'/CarPark',
+            //'/CarParkDataImport/CarPark',
+            '/CarPark',
             {
                 name: 'CarParkName',
                 location: 'Location',

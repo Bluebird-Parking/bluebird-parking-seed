@@ -346,10 +346,10 @@ const testXML = `
 	</CarPark>`;
 
 export async function main() {
-    const dl = await cloudStorageDownload('bluebird-parking-dev-data', 'source/CarParkData_1.xml');
-    const parseResult = await parser(dl.toString());
+    //const dl = await cloudStorageDownload('bluebird-parking-dev-data', 'source/CarParkData_1.xml');
+    //const parseResult = await parser(dl.toString());
 
-    // const parseResult = await parser(testXML);
+    const parseResult = await parser(testXML);
     const result = await transform(parseResult.carparks);
     const valid = await validate(result);
 

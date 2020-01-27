@@ -1,4 +1,7 @@
 import { uuid } from 'uuidv4';
+const OSPoint = require('ospoint');
+const geo = require('geo-hash');
+
 
 export async function transform(carparks: any[]): Promise<any> {
     return Promise.all(
@@ -28,10 +31,14 @@ export function transformAccessPoints(accessPoints: any[]): any {
     const exit = accessPoints.find((accessPoint) => accessPoint.type === 'Exit');
     const map = accessPoints.find((accessPoint) => accessPoint.type === 'Map');
 
+    const point = new OSPoint(map.northing, map.easting);
+    const geocode = point.toWGS84();
+    const geohash = geo.encode(geocode.latitude, geocode.longitude);
+
     return {
-        entranceAccessPoint: { ...entrance, uuid: uuid() },
-        exitAccessPoint: { ...exit, uuid: uuid() },
-        centralAccessPoint: { ...map, uuid: uuid() }
+        entranceAccessPoint: { ...entrance, uuid: uuid(), ...geocode, geohash },
+        exitAccessPoint: { ...exit, uuid: uuid(), ...geocode, geohash },
+        centralAccessPoint: { ...map, uuid: uuid(), ...geocode, geohash }
     };
 }
 
