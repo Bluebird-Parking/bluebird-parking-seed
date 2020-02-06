@@ -3,6 +3,7 @@ import { cloudStorageDownload } from '../retrieve/cloud-storage';
 import { transform } from '../transform/transform';
 import { validate } from '../validate/validate';
 import { cloudStorageUpload } from '../load/load';
+import { loadFirestore } from '../load/load-firebase';
 
 export function testFun(): number {
     console.log('Im adding 2+2');
@@ -343,17 +344,315 @@ const testXML = `
 				</Charges>
 			</CarParkSpace>
 		</CarParkAdditionalData>
+	</CarPark>
+  <CarPark>
+		<CarParkRef>4</CarParkRef>
+		<CarParkName>Peel Street</CarParkName>
+		<Location>York</Location>
+		<Address>Peel Street--York--North Yorkshire</Address>
+		<Postcode>YO1 9PZ</Postcode>
+		<Notes>Open 24 hours. Pay-by-Mobile Information: RingGo users can pay by calling 020 3046 0060 (location id 2505). Blue badge holders can park free for as long as they want. CCTV. Permit parking available.</Notes>
+		<Telephone>01904672600</Telephone>
+		<URL>http://www.bransbywilson.co.uk/car-park-management/public-parking</URL>
+		<MinCostPence>150</MinCostPence>
+		<IsParkAndRide>false</IsParkAndRide>
+		<StayType>Long</StayType>
+		<PlanningPoint>false</PlanningPoint>
+		<DateRecordLastUpdated>2014-10-14</DateRecordLastUpdated>
+		<WEFDate>1900-01-01</WEFDate>
+		<WEUDate>2099-12-31</WEUDate>
+		<AccessPoints>
+			<GeocodeType>Entrance</GeocodeType>
+			<Easting>460753</Easting>
+			<Northing>451428</Northing>
+			<StreetName>GEORGE STREET</StreetName>
+			<BarrierInOperation>No</BarrierInOperation>
+		</AccessPoints>
+		<AccessPoints>
+			<GeocodeType>Exit</GeocodeType>
+			<Easting>460753</Easting>
+			<Northing>451428</Northing>
+			<StreetName>GEORGE STREET</StreetName>
+			<BarrierInOperation>No</BarrierInOperation>
+		</AccessPoints>
+		<AccessPoints>
+			<GeocodeType>Map</GeocodeType>
+			<Easting>460772</Easting>
+			<Northing>451443</Northing>
+			<StreetName/>
+			<BarrierInOperation>Unk</BarrierInOperation>
+		</AccessPoints>
+		<CarParkOperator>
+			<OperatorCode>1224</OperatorCode>
+			<OperatorName>Bransby Wilson Parking Solutions</OperatorName>
+			<OperatorURL>http://www.bransbywilson.co.uk/contact</OperatorURL>
+			<OperatorTsAndCs>Permission received</OperatorTsAndCs>
+			<OperatorEmail>enquiries@bransbywilson.co.uk</OperatorEmail>
+		</CarParkOperator>
+		<TrafficNewsRegion>
+			<RegionName>Yorkshire and Humber</RegionName>
+		</TrafficNewsRegion>
+		<NPTGAdminDistrict>
+			<AdminAreaCode>68</AdminAreaCode>
+			<DistrictCode>310</DistrictCode>
+		</NPTGAdminDistrict>
+		<CarParkAdditionalData>
+			<ClosingDate>1900-01-01</ClosingDate>
+			<ReopeningDate>1900-01-01</ReopeningDate>
+			<maxHeight>198</maxHeight>
+			<PMSPA>Yes</PMSPA>
+			<EmergencyNumber/>
+			<CarParkEmail>enquiries@bransbywilson.co.uk</CarParkEmail>
+			<CCTV>Yes</CCTV>
+			<Staffed>Unk</Staffed>
+			<Patrolled>Unk</Patrolled>
+			<VehicleRestrictions/>
+			<LiftsAvailable>Unk</LiftsAvailable>
+			<ReservationsAvailable>Unk</ReservationsAvailable>
+			<SeasonTicketsAvailable>Unk</SeasonTicketsAvailable>
+			<NPTGLocality/>
+			<CarParkType>
+				<TypeCode>surface</TypeCode>
+				<TypeDescription>Surface Car Park</TypeDescription>
+			</CarParkType>
+			<OpeningTimes>
+				<Calendar>
+					<CalendarStartDate>2010-01-01</CalendarStartDate>
+					<CalendarEndDate>2010-12-31</CalendarEndDate>
+					<Days>------S</Days>
+					<PublicHolidays>Includes</PublicHolidays>
+				</Calendar>
+				<OpensAt>00:00:00</OpensAt>
+				<LastEntranceAt>00:00:00</LastEntranceAt>
+				<ClosesAt>00:00:00</ClosesAt>
+			</OpeningTimes>
+			<OpeningTimes>
+				<Calendar>
+					<CalendarStartDate>2010-01-01</CalendarStartDate>
+					<CalendarEndDate>2010-12-31</CalendarEndDate>
+					<Days>MTWTF--</Days>
+					<PublicHolidays>Excludes</PublicHolidays>
+				</Calendar>
+				<OpensAt>00:00:00</OpensAt>
+				<LastEntranceAt>00:00:00</LastEntranceAt>
+				<ClosesAt>00:00:00</ClosesAt>
+			</OpeningTimes>
+			<OpeningTimes>
+				<Calendar>
+					<CalendarStartDate>2010-01-01</CalendarStartDate>
+					<CalendarEndDate>2010-12-31</CalendarEndDate>
+					<Days>-----S-</Days>
+					<PublicHolidays>Includes</PublicHolidays>
+				</Calendar>
+				<OpensAt>00:00:00</OpensAt>
+				<LastEntranceAt>00:00:00</LastEntranceAt>
+				<ClosesAt>00:00:00</ClosesAt>
+			</OpeningTimes>
+			<OpeningTimes>
+				<Calendar>
+					<CalendarStartDate>2010-01-01</CalendarStartDate>
+					<CalendarEndDate>2010-12-31</CalendarEndDate>
+					<Days>MTWTFSS</Days>
+					<PublicHolidays>Only</PublicHolidays>
+				</Calendar>
+				<OpensAt>00:00:00</OpensAt>
+				<LastEntranceAt>00:00:00</LastEntranceAt>
+				<ClosesAt>00:00:00</ClosesAt>
+			</OpeningTimes>
+			<Concessions>
+				<ConcessionCode>1</ConcessionCode>
+				<ConcessionDescription>Disabled parking free</ConcessionDescription>
+			</Concessions>
+			<PaymentType>
+				<TypeCode>1</TypeCode>
+				<TypeDescription>Pay and Display</TypeDescription>
+			</PaymentType>
+			<PaymentMethods>
+				<Code>50</Code>
+				<Description>Cash</Description>
+				<ChangeAvailable>Unk</ChangeAvailable>
+			</PaymentMethods>
+			<Facilities>
+				<FacilityName/>
+				<FacilityLocation>Unknown</FacilityLocation>
+				<FacilityTypeCode>41</FacilityTypeCode>
+				<FacilityTypeDescription>None Recorded</FacilityTypeDescription>
+			</Facilities>
+			<CarParkSpace>
+				<NumberOfSpaces>77</NumberOfSpaces>
+				<TypeCode>11</TypeCode>
+				<TypeDescription>All Types</TypeDescription>
+				<Charges>
+					<StartTime>08:30:00</StartTime>
+					<EndTime>18:00:00</EndTime>
+					<TimeRangeDays>0</TimeRangeDays>
+					<TimeRangeMinutes>60</TimeRangeMinutes>
+					<Comments/>
+					<ChargeAmount>150</ChargeAmount>
+					<ChargeDayEndTime>24 hours</ChargeDayEndTime>
+					<ChargeType>Time Based</ChargeType>
+					<ChargeDescription>2</ChargeDescription>
+					<Calendar>
+						<CalendarStartDate>2010-01-01</CalendarStartDate>
+						<CalendarEndDate>2010-12-31</CalendarEndDate>
+						<Days>MTWTFSS</Days>
+						<PublicHolidays>Includes</PublicHolidays>
+					</Calendar>
+				</Charges>
+			</CarParkSpace>
+			<CarParkSpace>
+				<NumberOfSpaces>77</NumberOfSpaces>
+				<TypeCode>11</TypeCode>
+				<TypeDescription>All Types</TypeDescription>
+				<Charges>
+					<StartTime>08:30:00</StartTime>
+					<EndTime>18:00:00</EndTime>
+					<TimeRangeDays>0</TimeRangeDays>
+					<TimeRangeMinutes>120</TimeRangeMinutes>
+					<Comments/>
+					<ChargeAmount>300</ChargeAmount>
+					<ChargeDayEndTime>24 hours</ChargeDayEndTime>
+					<ChargeType>Time Based</ChargeType>
+					<ChargeDescription>2</ChargeDescription>
+					<Calendar>
+						<CalendarStartDate>2010-01-01</CalendarStartDate>
+						<CalendarEndDate>2010-12-31</CalendarEndDate>
+						<Days>MTWTFSS</Days>
+						<PublicHolidays>Includes</PublicHolidays>
+					</Calendar>
+				</Charges>
+			</CarParkSpace>
+			<CarParkSpace>
+				<NumberOfSpaces>77</NumberOfSpaces>
+				<TypeCode>11</TypeCode>
+				<TypeDescription>All Types</TypeDescription>
+				<Charges>
+					<StartTime>08:30:00</StartTime>
+					<EndTime>18:00:00</EndTime>
+					<TimeRangeDays>0</TimeRangeDays>
+					<TimeRangeMinutes>180</TimeRangeMinutes>
+					<Comments/>
+					<ChargeAmount>400</ChargeAmount>
+					<ChargeDayEndTime>24 hours</ChargeDayEndTime>
+					<ChargeType>Time Based</ChargeType>
+					<ChargeDescription>2</ChargeDescription>
+					<Calendar>
+						<CalendarStartDate>2010-01-01</CalendarStartDate>
+						<CalendarEndDate>2010-12-31</CalendarEndDate>
+						<Days>MTWTFSS</Days>
+						<PublicHolidays>Includes</PublicHolidays>
+					</Calendar>
+				</Charges>
+			</CarParkSpace>
+			<CarParkSpace>
+				<NumberOfSpaces>77</NumberOfSpaces>
+				<TypeCode>11</TypeCode>
+				<TypeDescription>All Types</TypeDescription>
+				<Charges>
+					<StartTime>08:30:00</StartTime>
+					<EndTime>18:00:00</EndTime>
+					<TimeRangeDays>0</TimeRangeDays>
+					<TimeRangeMinutes>240</TimeRangeMinutes>
+					<Comments/>
+					<ChargeAmount>500</ChargeAmount>
+					<ChargeDayEndTime>24 hours</ChargeDayEndTime>
+					<ChargeType>Time Based</ChargeType>
+					<ChargeDescription>2</ChargeDescription>
+					<Calendar>
+						<CalendarStartDate>2010-01-01</CalendarStartDate>
+						<CalendarEndDate>2010-12-31</CalendarEndDate>
+						<Days>MTWTFSS</Days>
+						<PublicHolidays>Includes</PublicHolidays>
+					</Calendar>
+				</Charges>
+			</CarParkSpace>
+			<CarParkSpace>
+				<NumberOfSpaces>77</NumberOfSpaces>
+				<TypeCode>11</TypeCode>
+				<TypeDescription>All Types</TypeDescription>
+				<Charges>
+					<StartTime>08:30:00</StartTime>
+					<EndTime>18:00:00</EndTime>
+					<TimeRangeDays>0</TimeRangeDays>
+					<TimeRangeMinutes>720</TimeRangeMinutes>
+					<Comments/>
+					<ChargeAmount>700</ChargeAmount>
+					<ChargeDayEndTime>24 hours</ChargeDayEndTime>
+					<ChargeType>Time Based</ChargeType>
+					<ChargeDescription>2</ChargeDescription>
+					<Calendar>
+						<CalendarStartDate>2010-01-01</CalendarStartDate>
+						<CalendarEndDate>2010-12-31</CalendarEndDate>
+						<Days>MTWTFSS</Days>
+						<PublicHolidays>Includes</PublicHolidays>
+					</Calendar>
+				</Charges>
+			</CarParkSpace>
+			<CarParkSpace>
+				<NumberOfSpaces>77</NumberOfSpaces>
+				<TypeCode>11</TypeCode>
+				<TypeDescription>All Types</TypeDescription>
+				<Charges>
+					<StartTime>08:30:00</StartTime>
+					<EndTime>18:00:00</EndTime>
+					<TimeRangeDays>1</TimeRangeDays>
+					<TimeRangeMinutes>0</TimeRangeMinutes>
+					<Comments/>
+					<ChargeAmount>900</ChargeAmount>
+					<ChargeDayEndTime>24 hours</ChargeDayEndTime>
+					<ChargeType>Time Based</ChargeType>
+					<ChargeDescription>2</ChargeDescription>
+					<Calendar>
+						<CalendarStartDate>2010-01-01</CalendarStartDate>
+						<CalendarEndDate>2010-12-31</CalendarEndDate>
+						<Days>MTWTFSS</Days>
+						<PublicHolidays>Includes</PublicHolidays>
+					</Calendar>
+				</Charges>
+			</CarParkSpace>
+			<CarParkSpace>
+				<NumberOfSpaces>77</NumberOfSpaces>
+				<TypeCode>11</TypeCode>
+				<TypeDescription>All Types</TypeDescription>
+				<Charges>
+					<StartTime>18:00:00</StartTime>
+					<EndTime>08:00:00</EndTime>
+					<TimeRangeDays>1</TimeRangeDays>
+					<TimeRangeMinutes>0</TimeRangeMinutes>
+					<Comments>overnight</Comments>
+					<ChargeAmount>200</ChargeAmount>
+					<ChargeDayEndTime>24 hours</ChargeDayEndTime>
+					<ChargeType>Fixed</ChargeType>
+					<ChargeDescription>1</ChargeDescription>
+					<Calendar>
+						<CalendarStartDate>2010-01-01</CalendarStartDate>
+						<CalendarEndDate>2010-12-31</CalendarEndDate>
+						<Days>MTWTFSS</Days>
+						<PublicHolidays>Includes</PublicHolidays>
+					</Calendar>
+				</Charges>
+			</CarParkSpace>
+		</CarParkAdditionalData>
 	</CarPark>`;
 
 export async function main() {
-    //const dl = await cloudStorageDownload('bluebird-parking-dev-data', 'source/CarParkData_1.xml');
-    //const parseResult = await parser(dl.toString());
+    console.log('Downloading source data...')
+    const dl = await cloudStorageDownload('bluebird-parking-dev-data', 'source/CarParkData_1.xml');
+    console.log('Source Download Complete!');
 
-    const parseResult = await parser(testXML);
+    console.log('Transforming Data...')
+    const parseResult = await parser(dl.toString());
+
+    //const parseResult = await parser(testXML);
     const result = await transform(parseResult.carparks);
     const valid = await validate(result);
+    console.log(`Transform Complete of ${valid.length} carparks.`);
 
+    console.log('Uploading data...');
     const ul = await cloudStorageUpload('bluebird-parking-dev-data', 'extract.json', JSON.stringify(valid, null, 4));
+    const fsUl = await loadFirestore(valid);
+
+    console.log('Complete!');
 
     return result;
 }

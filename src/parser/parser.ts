@@ -4,8 +4,8 @@ const { transform } = require('camaro');
 export async function parser(xml: string): Promise<any> {
     return transform(xml, {
         carparks: [
-            //'/CarParkDataImport/CarPark',
-            '/CarPark',
+            '/CarParkDataImport/CarPark',
+            //'/CarPark',
             {
                 name: 'CarParkName',
                 location: 'Location',
@@ -16,7 +16,7 @@ export async function parser(xml: string): Promise<any> {
                 url: 'URL',
                 lastUpdated: 'DateRecordLastUpdated',
                 accessPoints: [
-                    '//AccessPoints',
+                    'child::AccessPoints',
                     {
                         type: 'GeocodeType',
                         easting: 'Easting',
@@ -24,17 +24,17 @@ export async function parser(xml: string): Promise<any> {
                     }
                 ],
                 operator: {
-                    name: '//CarParkOperator/OperatorName',
-                    url: '//CarParkOperator/OperatorURL',
-                    email: '//CarParkOperator/OperatorEmail'
+                    name: 'child::CarParkOperator/OperatorName',
+                    url: 'child::CarParkOperator/OperatorURL',
+                    email: 'child::CarParkOperator/OperatorEmail'
                 },
-                paymentType: '//CarParkAdditionalData/PaymentType/TypeDescription',
+                paymentType: 'child::CarParkAdditionalData/PaymentType/TypeDescription',
                 effectiveFromDate: 'WEFDate',
                 effectiveUntilDate: 'WEUDate',
-                closingDate: '//CarParkAdditionalData/ClosingDate',
-                reopeningDate: '//CarParkAdditionalData/ReopeningDate',
+                closingDate: 'child::CarParkAdditionalData/ClosingDate',
+                reopeningDate: 'child::CarParkAdditionalData/ReopeningDate',
                 spaces: [
-                    '//CarParkAdditionalData/CarParkSpace',
+                    'child::CarParkAdditionalData/CarParkSpace',
                     {
                         type: 'TypeDescription',
                         numberOfSpaces: 'NumberOfSpaces'
