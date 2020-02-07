@@ -633,26 +633,46 @@ const testXML = `
 				</Charges>
 			</CarParkSpace>
 		</CarParkAdditionalData>
-	</CarPark>`;
+</CarPark>`;
+
+const sourceFiles = [
+    'source/CarParkData_1.xml',
+    'source/CarParkData_2.xml',
+    'source/CarParkData_3.xml',
+    'source/CarParkData_4.xml',
+    'source/CarParkData_5.xml',
+    'source/CarParkData_6.xml',
+    'source/CarParkData_7.xml',
+    'source/CarParkData_8.xml'
+];
 
 export async function main() {
-    console.log('Downloading source data...')
-    const dl = await cloudStorageDownload('bluebird-parking-dev-data', 'source/CarParkData_1.xml');
-    console.log('Source Download Complete!');
+    let carparks: any[] = [];
 
-    console.log('Transforming Data...')
-    const parseResult = await parser(dl.toString());
+    for(const sourceFile of sourceFiles) {
+        console.log('Downloading source data...');
+        const dl = await cloudStorageDownload('bluebird-parking-dev-data', sourceFile);
+        console.log('Source Download Complete!');
 
-    //const parseResult = await parser(testXML);
-    const result = await transform(parseResult.carparks);
-    const valid = await validate(result);
-    console.log(`Transform Complete of ${valid.length} carparks.`);
+        console.log('Transforming Data...')
+        const parseResult = await parser(dl.toString());
+
+        //const parseResult = await parser(testXML);
+        const result = await transform(parseResult.carparks);
+        const valid = await validate(result);
+        console.log(`Transform Complete of ${valid.length} carparks.`);
+
+        carparks = [
+            ...carparks,
+            ...valid
+        ];
+    }
 
     console.log('Uploading data...');
-    const ul = await cloudStorageUpload('bluebird-parking-dev-data', 'extract.json', JSON.stringify(valid, null, 4));
-    const fsUl = await loadFirestore(valid);
+    const ul = await cloudStorageUpload('bluebird-parking-dev-data', 'extract.json', JSON.stringify(carparks, null, 4));
+    const fsUl = await loadFirestore(carparks);
 
     console.log('Complete!');
 
-    return result;
+    return carparks;
 }
